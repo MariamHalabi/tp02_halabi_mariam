@@ -1,0 +1,69 @@
+<div class="form">
+  <label>Prénom : </label>
+  <input [(ngModel)]="prenom" />
+  <br />
+  <br />
+  <label>Nom : </label>
+  <input [(ngModel)]="nom" />
+  <br />
+  <br />
+  <label>Adresse : </label>
+  <input [(ngModel)]="adresse" />
+  <br />
+  <br />
+  <label>Code Postal : </label>
+  <input [(ngModel)]="cp" />
+  <br />
+  <br />
+  <label>Ville : </label>
+  <input [(ngModel)]="ville" />
+  <br />
+  <br />
+  <label> Pays : </label>
+  <input [(ngModel)]="pays" />
+  <br />
+  <br />
+  <label>Télephone : </label>
+  <input [(ngModel)]="tel" />
+  <br />
+  <br />
+  <label>E-mail : </label>
+  <input [(ngModel)]="email" />
+  <br />
+  <br />
+  <label>Civilité : </label>
+  <input [(ngModel)]="civilite" />
+  <br />
+  <br />
+  <label>Identifiant : </label>
+  <input [(ngModel)]="login" />
+  <br />
+  <br />
+  <label>Mot de passe : </label>
+  <input [(ngModel)]="password" type="password" />
+  <br />
+  <br />
+</div>
+
+<br />
+<br />
+
+<div id="recap">
+  <app-composant-validation
+    [firstname]="prenom"
+    [lastname]="nom"
+    [lastname]="nom"
+    [adress]="adresse"
+    [pc]="cp"
+    [city]="ville"
+    [country]="pays"
+    [phone]="tel"
+    [mail]="email"
+    [civ]="civilite"
+    [userid]="login"
+    [pass]="password"
+    (change)="clicChange($event)"
+  ></app-composant-validation>
+</div>
+
+{{ recap }}
