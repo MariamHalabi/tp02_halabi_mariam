@@ -11,8 +11,18 @@
   <input [(ngModel)]="adresse" />
   <br />
   <br />
+  <div #errCp *ngIf="isShownCp" style="color: red; font-size: small">
+    le code postal doit contenir 5 chiffres
+  </div>
   <label>Code Postal : </label>
-  <input [(ngModel)]="cp" />
+  <input
+    id="codePostalChamps"
+    name="codePostalChampss"
+    #codePostalChamps
+    class="mat-input-flex.mat-form-field-flex"
+    [(ngModel)]="cp"
+    inputCp
+  />
   <br />
   <br />
   <label>Ville : </label>
@@ -23,8 +33,15 @@
   <input [(ngModel)]="pays" />
   <br />
   <br />
+  <div #errTel *ngIf="isShownTel" style="color: red; font-size: small">
+    le numéro de télephone doit contenir 10 chiffres
+  </div>
   <label>Télephone : </label>
-  <input [(ngModel)]="tel" />
+  <input
+    [(ngModel)]="tel"
+    #telnumber
+    class="mat-input-flex.mat-form-field-flex"
+  />
   <br />
   <br />
   <label>E-mail : </label>
@@ -43,12 +60,13 @@
   <input [(ngModel)]="password" type="password" />
   <br />
   <br />
+  <button (click)="clic()" style="margin-right: 8%">Envoyer</button>
 </div>
 
 <br />
 <br />
 
-<div id="recap">
+<div>
   <app-composant-validation
     [firstname]="prenom"
     [lastname]="nom"
@@ -62,8 +80,9 @@
     [civ]="civilite"
     [userid]="login"
     [pass]="password"
-    (change)="clicChange($event)"
+    [champsPC]="codePostalChamps"
+    (change)="clicChange()"
   ></app-composant-validation>
 </div>
 
-{{ recap }}
+<div *ngIf="recapShow">{{ recap }}</div>

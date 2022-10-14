@@ -7,6 +7,8 @@ import { ComposantTetiaireComponent } from './composant-tetiaire/composant-tetia
 import { ComposantFormulaireComponent } from './composant-formulaire/composant-formulaire.component';
 import { ComposantValidationComponent } from './composant-validation/composant-validation.component';
 import { ComposantFooterComponent } from './composant-footer/composant-footer.component';
+import { CtrlDataDirectiveDirective } from './ctrl-data-directive.directive';
+import { PhonePipe } from './phone.pipe';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { ComposantFooterComponent } from './composant-footer/composant-footer.co
     ComposantFormulaireComponent,
     ComposantValidationComponent,
     ComposantFooterComponent,
+    CtrlDataDirectiveDirective,
+    PhonePipe,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

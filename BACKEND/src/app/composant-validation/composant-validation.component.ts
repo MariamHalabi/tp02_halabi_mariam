@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Output,
+  Type,
+} from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
 @Component({
@@ -12,19 +19,39 @@ export class ComposantValidationComponent implements OnInit {
   @Input() firstname: String = '';
   @Input() lastname: String = '';
   @Input() adress: String = '';
-  @Input() pc: number = 67000;
+  @Input() pc: string = '';
   @Input() city: String = '';
-  @Input() phone: number = 0;
+  @Input() phone: String = '';
   @Input() mail: String = '';
   @Input() civ: String = '';
   @Input() pass: String = '';
   @Input() userid: String = '';
   @Input() country: String = '';
+  @Input() champsPC: any;
+
+  
+
+  verif: string = '';
+  res: boolean = false;
 
   @Output() change: EventEmitter<String> = new EventEmitter<String>();
 
   ngOnInit(): void {}
+
+  test(cp: string, rg: string): boolean {
+    let regEx = new RegExp(rg, 'g');
+    this.verif = cp;
+
+    console.log(cp);
+
+    this.res = regEx.test(cp);
+    console.log(this.res);
+    return this.res;
+  }
+
   clic() {
+    console.log('chzmps chzmps ' + this.champsPC);
+
     this.change.emit(
       'Votre Prénom : ' +
         this.firstname +
